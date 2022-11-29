@@ -56,7 +56,7 @@ logger = logging.getLogger(__name__)
 
 
 def load(path=None):
-    logger.info("Start load config file")
+    logger.info(f"Start load config file. path = {path}")
     if path is None:
         path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../config.yml")
     with open(path, 'r') as f:

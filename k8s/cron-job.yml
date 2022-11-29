@@ -19,5 +19,13 @@ spec:
                 - /entrypoint.sh -c ${CONFIG_PATH}
               env:
                 - name: CONFIG_PATH
-                  value: "/app/config.yml"
+                  value: "/mount/conf/info.yml"
+              volumeMounts:
+                - mountPath: /mount/conf
+                  name: db-copy-app-cm
           restartPolicy: OnFailure  # Always / OnFailure / Never
+          volumes:
+            - configMap:
+                defaultMode: 420
+                name: db-copy-app-cm
+              name: db-copy-app-cm
