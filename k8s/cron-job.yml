@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: db-copy-app
+  namespace: dev
+spec:
+  schedule: "*/30 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: db-copy-app
+              image: db-copy-cron-job:v0.1.0-0782246
+              imagePullPolicy: IfNotPresent
+              command:
+                - /bin/bash
+                - -c
+                - /entrypoint.sh -c ${CONFIG_PATH}
+              env:
+                - name: CONFIG_PATH
+                  value: "/app/config.yml"
+          restartPolicy: OnFailure  # Always / OnFailure / Never
