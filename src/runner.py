@@ -17,7 +17,7 @@ def run_all(path):
                 case.source.db_info,
                 case.source.sql
             )
-            mariadb_queries.delete_and_insert_rows(
+            mariadb_queries.insert_rows(
                 case.dest.db_info,
                 table_name=case.dest.table_name,
                 columns=case.dest.columns,
