@@ -17,12 +17,7 @@ def run_all(path):
                 case.source.db_info,
                 case.source.sql
             )
-            mariadb_queries.insert_rows(
-                case.dest.db_info,
-                table_name=case.dest.table_name,
-                columns=case.dest.columns,
-                rows=rows
-            )
+            mariadb_queries.insert_rows(case.dest, rows=rows)
             logger.info(f"This case is work successfully. case = {case}")
         except Exception as e:
             logger.exception(e)

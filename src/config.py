@@ -41,6 +41,8 @@ class DestSchema(LoopSchema):
     table_name: str
     columns: List
     db_info: DBSettings
+    id_column: str = None
+    ignore_id: List = []
 
 
 class CaseSchema(BaseSchema):
