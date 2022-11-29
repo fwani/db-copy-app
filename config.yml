@@ -1,0 +1,39 @@
+case:
+  - source:
+      sql: select id, name from analyze_tech
+      db_info:
+        host: localhost
+        port: 3306
+        dbname: test
+        user: root
+        password: fwani
+    dest:
+      table_name: analyze_tech_copied
+      columns:
+        - id
+        - name
+      db_info:
+        host: localhost
+        port: 3306
+        dbname: test
+        user: root
+        password: fwani
+  - source:
+      sql: select id, name from analyze_lib
+      db_info:
+        host: localhost
+        port: 3306
+        dbname: test
+        user: root
+        password: fwani
+    dest:
+      table_name: analyze_lib_copied
+      columns:
+        - id
+        - name
+      db_info:
+        host: localhost
+        port: 3306
+        dbname: test
+        user: root
+        password: fwani
