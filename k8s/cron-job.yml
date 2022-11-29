@@ -20,6 +20,8 @@ spec:
               env:
                 - name: CONFIG_PATH
                   value: "/mount/conf/info.yml"
+                - name: LOG_PATH
+                  value: "/app/log"
               volumeMounts:
                 - mountPath: /mount/conf
                   name: db-copy-app-cm
