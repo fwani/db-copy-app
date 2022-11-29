@@ -7,7 +7,9 @@ data:
   info.yml: |-
     case:
       - source:
-          sql: select id, name from analyze_tech
+          sql: |-
+            select id, name 
+            from analyze_tech
           db_info:
             host: localhost
             port: 3306
